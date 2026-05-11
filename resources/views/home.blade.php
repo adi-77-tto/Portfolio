@@ -540,9 +540,9 @@
             <svg class="nav-icon" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
             Experience
         </a>
-        <a href="#featured-projects">
-            <svg class="nav-icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect></svg>
-            Projects
+        <a href="#technical-skills">
+            <svg class="nav-icon" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            Skills
         </a>
         <button id="theme-toggle">
             <svg class="nav-icon" id="sun-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="19.78" x2="19.78" y2="18.36"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="4.22" x2="19.78" y2="5.64"></line></svg>
@@ -667,10 +667,14 @@
     <style>
         .education-section {
             padding: 4rem 6%;
-            background: transparent;
+            background: #0c0e12;
             min-height: 600px;
             display: flex;
             align-items: center;
+        }
+
+        [data-theme='light'] .education-section {
+            background: #f3f4f6;
         }
         
         .education-container {
@@ -686,6 +690,10 @@
             margin-bottom: 3rem;
             color: var(--ink, #111827);
         }
+
+        [data-theme='dark'] .section-title {
+            color: #f3f4f6;
+        }
         
         .education-timeline {
             display: flex;
@@ -700,6 +708,14 @@
             padding: 2rem;
             border-left: 4px solid #0d945a;
             transition: all 0.3s ease;
+        }
+
+        [data-theme='light'] .education-card {
+            border-color: rgba(100, 100, 100, 0.2);
+        }
+
+        [data-theme='dark'] .education-card {
+            border-color: rgba(148, 163, 184, 0.2);
         }
         
         .education-card:hover {
@@ -750,11 +766,23 @@
             margin: 0;
             color: var(--ink, #111827);
         }
+
+        [data-theme='light'] .education-degree {
+            color: #111827;
+        }
+
+        [data-theme='dark'] .education-degree {
+            color: #f3f4f6;
+        }
         
         .education-institution {
             font-size: 1rem;
             color: #6b7280;
             margin: 0.25rem 0;
+        }
+
+        [data-theme='dark'] .education-institution {
+            color: #d1d5db;
         }
         
         .education-period {
@@ -786,6 +814,14 @@
             align-items: center;
             gap: 0.5rem;
         }
+
+        [data-theme='light'] .education-section-title {
+            color: #111827;
+        }
+
+        [data-theme='dark'] .education-section-title {
+            color: #f3f4f6;
+        }
         
         .section-icon {
             font-size: 1.2rem;
@@ -803,6 +839,10 @@
             font-size: 0.9rem;
             color: #4b5563;
             line-height: 1.5;
+        }
+
+        [data-theme='dark'] .education-list li {
+            color: #cbd5e1;
         }
         
         .education-empty {
@@ -890,10 +930,14 @@
     <style>
         .work-experience-section {
             padding: 4rem 6%;
-            background: transparent;
+            background: #0c0e12;
             min-height: 600px;
             display: flex;
             align-items: center;
+        }
+
+        [data-theme='light'] .work-experience-section {
+            background: #f3f4f6;
         }
         
         .work-experience-container {
@@ -915,6 +959,14 @@
             padding: 2rem;
             border-left: 4px solid #0d945a;
             transition: all 0.3s ease;
+        }
+
+        [data-theme='light'] .work-experience-card {
+            border-color: rgba(100, 100, 100, 0.2);
+        }
+
+        [data-theme='dark'] .work-experience-card {
+            border-color: rgba(148, 163, 184, 0.2);
         }
         
         .work-experience-card:hover {
@@ -965,11 +1017,23 @@
             margin: 0;
             color: var(--ink, #111827);
         }
+
+        [data-theme='light'] .work-experience-company {
+            color: #111827;
+        }
+
+        [data-theme='dark'] .work-experience-company {
+            color: #f3f4f6;
+        }
         
         .work-experience-position {
             font-size: 1rem;
             color: #6b7280;
             margin: 0.25rem 0;
+        }
+
+        [data-theme='dark'] .work-experience-position {
+            color: #d1d5db;
         }
         
         .work-experience-period {
@@ -991,6 +1055,10 @@
             font-size: 0.95rem;
             line-height: 1.6;
             color: #4b5563;
+        }
+
+        [data-theme='dark'] .work-experience-description p {
+            color: #cbd5e1;
         }
         
         .work-experience-empty {
@@ -1016,6 +1084,170 @@
             .work-experience-logo-placeholder {
                 width: 60px;
                 height: 60px;
+            }
+        }
+    </style>
+</section>
+
+<!-- Technical Skills Section -->
+<section id="technical-skills" class="technical-skills-section">
+    <div class="technical-skills-container">
+        <h2 class="section-title">Technical Skills</h2>
+        <p class="section-subtitle">Core technologies I use to build performant applications and modern user experiences.</p>
+        
+        @if($skills->count() > 0)
+            <div class="skills-wrapper">
+                @foreach($skills as $category => $categorySkills)
+                    <div class="skills-category">
+                        @foreach($categorySkills as $skill)
+                            <span class="skill-badge" title="{{ $skill->name }}">
+                                @if($skill->icon)
+                                    <img src="{{ asset($skill->icon) }}" alt="{{ $skill->name }}" class="skill-icon">
+                                @else
+                                    <span class="skill-icon-placeholder">{{ substr($skill->name, 0, 1) }}</span>
+                                @endif
+                                <span class="skill-name">{{ $skill->name }}</span>
+                            </span>
+                        @endforeach
+                    </div>
+                @endforeach
+            </div>
+        @else
+            <div class="skills-empty">
+                <p>No skills added yet.</p>
+            </div>
+        @endif
+    </div>
+
+    <style>
+        .technical-skills-section {
+            padding: 4rem 6%;
+            background: #0c0e12;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+        }
+
+        [data-theme='light'] .technical-skills-section {
+            background: #f3f4f6;
+        }
+
+        .technical-skills-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .technical-skills-section .section-title {
+            color: #f3f4f6;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        [data-theme='light'] .technical-skills-section .section-title {
+            color: #111827;
+        }
+
+        .technical-skills-section .section-subtitle {
+            text-align: center;
+            color: #9ca3af;
+            margin: 0 auto 2.5rem;
+            max-width: 700px;
+        }
+
+        [data-theme='light'] .technical-skills-section .section-subtitle {
+            color: #6b7280;
+        }
+
+        .skills-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .skills-category {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .skill-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            color: #e2e8f0;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        [data-theme='light'] .skill-badge {
+            background: rgba(249, 250, 251, 0.8);
+            border-color: rgba(203, 213, 225, 0.3);
+            color: #1e293b;
+        }
+
+        .skill-badge:hover {
+            background: rgba(51, 65, 85, 0.9);
+            border-color: rgba(148, 163, 184, 0.4);
+            transform: translateY(-2px);
+        }
+
+        [data-theme='light'] .skill-badge:hover {
+            background: #f1f5f9;
+            border-color: rgba(203, 213, 225, 0.5);
+        }
+
+        .skill-icon {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+
+        .skill-icon-placeholder {
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(59, 130, 246, 0.2);
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #60a5fa;
+        }
+
+        .skills-empty {
+            text-align: center;
+            padding: 2rem;
+            color: var(--muted, #6b7280);
+        }
+
+        @media (max-width: 768px) {
+            .technical-skills-section {
+                padding: 3rem 1rem;
+            }
+
+            .skills-wrapper {
+                gap: 0.75rem;
+            }
+
+            .skill-badge {
+                padding: 0.4rem 0.75rem;
+                font-size: 0.8rem;
+            }
+
+            .skill-icon {
+                width: 16px;
+                height: 16px;
             }
         }
     </style>
@@ -1101,10 +1333,14 @@
     <style>
         .featured-projects-section {
             padding: 4rem 6%;
-            background: transparent;
+            background: #0c0e12;
             min-height: 600px;
             display: flex;
             align-items: center;
+        }
+
+        [data-theme='light'] .featured-projects-section {
+            background: #f3f4f6;
         }
 
         .featured-projects-container {
@@ -1141,6 +1377,14 @@
             display: flex;
             flex-direction: column;
             height: 100%;
+        }
+
+        [data-theme='light'] .project-card {
+            border-color: rgba(100, 100, 100, 0.2);
+        }
+
+        [data-theme='dark'] .project-card {
+            border-color: rgba(148, 163, 184, 0.2);
         }
 
         .project-card:hover {
@@ -1194,6 +1438,10 @@
             color: #111827;
         }
 
+        [data-theme='dark'] .project-title {
+            color: #f3f4f6;
+        }
+
         .project-description {
             font-size: 0.9rem;
             line-height: 1.5;
@@ -1204,6 +1452,10 @@
 
         [data-theme='light'] .project-description {
             color: #6b7280;
+        }
+
+        [data-theme='dark'] .project-description {
+            color: #9ca3af;
         }
 
         .project-frameworks {
