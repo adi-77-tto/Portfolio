@@ -19,20 +19,48 @@
             margin: 0;
             font-family: Georgia, Cambria, 'Times New Roman', serif;
             color: var(--ink);
-            background: radial-gradient(circle at top right, #e8f4ef, transparent 45%), var(--bg);
+            background: #0c0e12;
         }
-        a { color: inherit; }
+        a { color: #60a5fa; }
+        body.home-hero-mode a { color: inherit; }
         .container {
             width: min(1100px, 92vw);
             margin: 0 auto;
+            padding: 0 1rem;
         }
         .nav {
             position: sticky;
             top: 0;
-            background: rgba(246, 248, 249, 0.92);
+            background: rgba(12, 14, 18, 0.95);
             backdrop-filter: blur(6px);
-            border-bottom: 1px solid var(--line);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             z-index: 50;
+        }
+        
+        .nav.minimal {
+            background: rgba(12, 14, 18, 0.95);
+        }
+        
+        .nav.minimal .nav-inner {
+            justify-content: flex-start;
+            padding: 1rem 0 1rem 1rem;
+        }
+        
+        .nav.minimal .brand {
+            display: none;
+        }
+        
+        .nav.minimal .menu {
+            gap: 0;
+        }
+        
+        .nav.minimal .menu a {
+            color: #9ca3af;
+            padding: 0.5rem;
+        }
+        
+        .nav.minimal .menu a:hover {
+            color: #60a5fa;
         }
         .nav-inner {
             display: flex;
@@ -44,8 +72,12 @@
             font-weight: 700;
             letter-spacing: 0.05em;
             text-transform: uppercase;
-            color: var(--accent);
+            color: #60a5fa;
             text-decoration: none;
+        }
+        
+        body.home-hero-mode .brand {
+            color: var(--accent);
         }
         .menu {
             display: flex;
@@ -55,49 +87,101 @@
         .menu a {
             text-decoration: none;
             font-size: 0.96rem;
-            color: var(--muted);
+            color: #9ca3af;
             padding: 0.35rem 0.6rem;
             border-radius: 8px;
         }
         .menu form { margin: 0; }
         .menu button {
-            border: 1px solid #d4dde4;
-            background: #fff;
-            color: var(--muted);
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            background: rgba(30, 41, 59, 0.5);
+            color: #9ca3af;
             border-radius: 8px;
             font: inherit;
             font-size: 0.96rem;
             padding: 0.35rem 0.6rem;
             cursor: pointer;
         }
-        .menu a:hover { background: #e7efec; color: var(--ink); }
+        .menu a:hover { 
+            color: #60a5fa;
+        }
+        
+        body.home-hero-mode .menu a {
+            color: var(--muted);
+        }
+        
+        body.home-hero-mode .menu button {
+            border: 1px solid #d4dde4;
+            background: #fff;
+            color: var(--muted);
+        }
+        
+        body.home-hero-mode .menu a:hover { 
+            background: #e7efec; 
+            color: var(--ink); 
+        }
         main { padding: 2rem 0 4rem; }
         .card {
-            background: var(--surface);
-            border: 1px solid var(--line);
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid rgba(148, 163, 184, 0.2);
             border-radius: 16px;
             padding: 1.1rem;
+            color: #e5e7eb;
+        }
+        
+        body.home-hero-mode .card {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            color: var(--ink);
         }
         .grid {
             display: grid;
             gap: 1rem;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
         }
-        h1, h2, h3 { margin-top: 0; }
-        .muted { color: var(--muted); }
+        .grid {
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        }
+        
+        h1, h2, h3 { 
+            margin-top: 0;
+            color: #ffffff;
+        }
+        
+        body.home-hero-mode h1,
+        body.home-hero-mode h2,
+        body.home-hero-mode h3 {
+            color: var(--ink);
+        }
+        .muted { 
+            color: #9ca3af;
+        }
+        
+        body.home-hero-mode .muted {
+            color: var(--muted);
+        }
         .badge {
             display: inline-block;
             padding: 0.2rem 0.5rem;
-            background: #e8f4ef;
-            border: 1px solid #cbe3da;
+            background: rgba(37, 99, 235, 0.2);
+            border: 1px solid rgba(37, 99, 235, 0.4);
             border-radius: 999px;
             margin-right: 0.35rem;
             margin-bottom: 0.35rem;
             font-size: 0.8rem;
+            color: #60a5fa;
+        }
+        
+        body.home-hero-mode .badge {
+            background: #e8f4ef;
+            border: 1px solid #cbe3da;
+            color: var(--ink);
         }
         .btn {
-            border: 1px solid var(--accent);
-            background: var(--accent);
+            border: 1px solid #2563eb;
+            background: #2563eb;
             color: white;
             border-radius: 10px;
             padding: 0.6rem 0.95rem;
@@ -105,31 +189,86 @@
             display: inline-block;
             cursor: pointer;
         }
+        
+        .btn:hover {
+            background: #1d4ed8;
+            border-color: #1d4ed8;
+        }
+        
         .btn-alt {
             background: transparent;
+            color: #60a5fa;
+            border-color: #60a5fa;
+        }
+        
+        .btn-alt:hover {
+            background: rgba(96, 165, 250, 0.1);
+        }
+        
+        body.home-hero-mode .btn {
+            border: 1px solid var(--accent);
+            background: var(--accent);
+            color: white;
+        }
+        
+        body.home-hero-mode .btn-alt {
+            background: transparent;
             color: var(--accent);
+            border-color: var(--accent);
         }
         input, textarea, select {
             width: 100%;
-            border: 1px solid var(--line);
+            border: 1px solid rgba(148, 163, 184, 0.3);
             border-radius: 10px;
             padding: 0.65rem;
             margin-top: 0.35rem;
             margin-bottom: 0.85rem;
             font: inherit;
+            background: rgba(30, 41, 59, 0.6);
+            color: #e5e7eb;
+        }
+        
+        input::placeholder, textarea::placeholder {
+            color: #9ca3af;
+        }
+        
+        body.home-hero-mode input,
+        body.home-hero-mode textarea,
+        body.home-hero-mode select {
+            border: 1px solid var(--line);
+            background: var(--surface);
+            color: var(--ink);
+        }
+        
+        body.home-hero-mode input::placeholder,
+        body.home-hero-mode textarea::placeholder {
+            color: var(--muted);
         }
         .alert {
-            background: #e9f7ef;
-            border: 1px solid #b8e1c8;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
             padding: 0.7rem;
             border-radius: 10px;
             margin-bottom: 1rem;
+            color: #86efac;
         }
+        
+        body.home-hero-mode .alert {
+            background: #e9f7ef;
+            border: 1px solid #b8e1c8;
+            color: var(--ink);
+        }
+        
         footer {
-            border-top: 1px solid var(--line);
+            border-top: 1px solid rgba(148, 163, 184, 0.2);
             padding: 1.5rem 0;
-            color: var(--muted);
+            color: #9ca3af;
             font-size: 0.9rem;
+        }
+        
+        body.home-hero-mode footer {
+            border-top: 1px solid var(--line);
+            color: var(--muted);
         }
         @media (max-width: 720px) {
             .nav-inner { align-items: flex-start; gap: 0.8rem; flex-direction: column; }
@@ -140,41 +279,33 @@
     @if (! empty($isHomeHero))
         @yield('content')
     @else
-        <nav class="nav">
         @if (request()->is('admin*') && !request()->routeIs('admin.login'))
-            <div class="container nav-inner">
-                <a class="brand" href="{{ route('home') }}">Aditto Saha</a>
-                <div class="menu">
-                    <a href="{{ route('home') }}">View Site</a>
-                    <form action="{{ route('admin.logout') }}" method="POST">
-                        @csrf
-                        <button type="submit">Logout</button>
-                    </form>
-                </div>
-            </div>
-        @else
-            <div class="container nav-inner">
-                <a class="brand" href="{{ route('home') }}">Aditto Saha</a>
-                <div class="menu">
-                    <a href="{{ route('home') }}">Home</a>
-                    <a href="{{ route('projects.index') }}">Projects</a>
-                    <a href="{{ route('about') }}">About</a>
-                    <a href="{{ route('contact.index') }}">Contact</a>
-                    @auth
-                        <a href="{{ route('admin.dashboard') }}">Admin Panel</a>
+            <nav class="nav">
+                <div class="container nav-inner">
+                    <a class="brand" href="{{ route('home') }}">Aditto Saha</a>
+                    <div class="menu">
+                        <a href="{{ route('home') }}">View Site</a>
                         <form action="{{ route('admin.logout') }}" method="POST">
                             @csrf
                             <button type="submit">Logout</button>
                         </form>
-                    @else
-                        <a href="{{ route('admin.login') }}">Admin Login</a>
-                    @endauth
+                    </div>
                 </div>
-            </div>
+            </nav>
+        @else
+            <nav class="nav minimal">
+                <div class="container nav-inner">
+                    <a class="brand" href="{{ route('home') }}">Aditto Saha</a>
+                    <div class="menu">
+                        <a href="{{ route('home') }}" title="Home">
+                            <svg style="width: 24px; height: 24px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                        </a>
+                    </div>
+                </div>
+            </nav>
         @endif
-        </nav>
 
-        <main style="{{ (request()->is('admin*') && !request()->routeIs('admin.login')) ? 'padding: 0;' : '' }}">
+        <main style="{{ (request()->is('admin*') && !request()->routeIs('admin.login')) ? 'padding: 0;' : 'background: #0c0e12; color: #e5e7eb; min-height: 100vh;' }}">
             <div class="container" style="{{ (request()->is('admin*') && !request()->routeIs('admin.login')) ? 'display: flex; gap: 2rem; max-width: 1400px; width: 95vw; margin: 2rem auto;' : '' }}">
                 @if (request()->is('admin*') && !request()->routeIs('admin.login'))
                     <aside style="width: 250px; flex-shrink: 0;">

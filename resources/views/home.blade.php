@@ -561,8 +561,8 @@
         <div class="resume-header">
             <div class="resume-title">Resume Preview</div>
             <div class="resume-actions">
-                @if(isset($settings['resume_file']))
-                    <a href="{{ asset($settings['resume_file']) }}" download class="btn-primary" style="padding: 0.5rem 1rem;">
+                @if(isset($settings['resume']))
+                    <a href="{{ asset($settings['resume']) }}" download class="btn-primary" style="padding: 0.5rem 1rem;">
                         <svg style="width:16px;height:16px;display:inline;margin-right:4px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"></path></svg> 
                         Download
                     </a>
@@ -573,15 +573,15 @@
             </div>
         </div>
         <div class="resume-viewer">
-            @if(!empty($settings['resume_file']))
+            @if(!empty($settings['resume']))
                 @php
-                    $ext = pathinfo($settings['resume_file'], PATHINFO_EXTENSION);
-                    $pdfUrl = asset($settings['resume_file']);
+                    $ext = pathinfo($settings['resume'], PATHINFO_EXTENSION);
+                    $pdfUrl = asset($settings['resume']);
                 @endphp
                 @if(strtolower($ext) === 'pdf')
                     <iframe src="{{ $pdfUrl }}" frameborder="0" style="width: 100%; height: 100%;"></iframe>
                 @else
-                    <img src="{{ asset($settings['resume_file']) }}" alt="Resume">
+                    <img src="{{ asset($settings['resume']) }}" alt="Resume">
                 @endif
             @else
                 <div style="padding: 4rem; text-align: center; color: #6b7280;">No resume uploaded yet. Add it from the admin panel.</div>
@@ -688,11 +688,11 @@
             font-size: clamp(2rem, 5vw, 3rem);
             font-weight: 700;
             margin-bottom: 3rem;
-            color: var(--ink, #111827);
+            color: #ffffff;
         }
 
-        [data-theme='dark'] .section-title {
-            color: #f3f4f6;
+        [data-theme='light'] .section-title {
+            color: #111827;
         }
         
         .education-timeline {
@@ -1139,7 +1139,7 @@
         }
 
         .technical-skills-section .section-title {
-            color: #f3f4f6;
+            color: #ffffff;
             text-align: center;
             margin-bottom: 1rem;
         }
@@ -1150,7 +1150,7 @@
 
         .technical-skills-section .section-subtitle {
             text-align: center;
-            color: #9ca3af;
+            color: #d1d5db;
             margin: 0 auto 2.5rem;
             max-width: 700px;
         }
@@ -1279,7 +1279,7 @@
                     <div class="project-details">
                         <h3 class="project-title">{{ $project->title }}</h3>
                         
-                        <p class="project-description">{{ Str::limit($project->description, 120) }}</p>
+                        <p class="project-description">{{ \Illuminate\Support\Str::limit($project->description, 120) }}</p>
 
                         <!-- Frameworks/Tech Stack -->
                         <div class="project-frameworks">
@@ -1352,7 +1352,7 @@
         .section-subtitle {
             font-size: 1.05rem;
             line-height: 1.6;
-            color: #9ca3af;
+            color: #d1d5db;
             margin-bottom: 3rem;
             max-width: 600px;
         }
