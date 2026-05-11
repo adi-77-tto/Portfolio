@@ -1,0 +1,220 @@
+                </div>
+                @endforeach
+            </div>
+        @else
+            <div class="education-empty">
+                <p>No education information available yet.</p>
+            </div>
+        @endif
+    </div>
+    
+    <style>
+        .education-section {
+            padding: 4rem 6%;
+            background: transparent;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .education-container {
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: var(--ink, #111827);
+        }
+        
+        .education-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .education-card {
+            background: transparent;
+            border: 1px solid var(--border-color, #333);
+            border-radius: 0.75rem;
+            padding: 2rem;
+            border-left: 4px solid var(--accent, #2563eb);
+            transition: all 0.3s ease;
+        }
+        
+        .education-card:hover {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transform: translateX(4px);
+        }
+        
+        .education-header {
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+        
+        .education-logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 0.5rem;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+        
+        .education-logo-placeholder {
+            width: 80px;
+            height: 80px;
+            background: var(--line, #e5e7eb);
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--muted, #9ca3af);
+            flex-shrink: 0;
+        }
+        
+        .education-logo-placeholder svg {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .education-info {
+            flex: 1;
+        }
+        
+        .education-degree {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 0;
+            color: var(--ink, #111827);
+        }
+        
+        .education-institution {
+            font-size: 1rem;
+            color: var(--muted, #6b7280);
+            margin: 0.25rem 0;
+        }
+        
+        .education-period {
+            font-size: 0.875rem;
+            color: var(--accent, #2563eb);
+            margin: 0.5rem 0 0 0;
+            font-weight: 600;
+        }
+        
+        .education-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .education-section-content {
+            padding: 1rem;
+            background: white;
+            border-radius: 0.5rem;
+        }
+        
+        .education-section-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--ink, #111827);
+            margin: 0 0 0.75rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .section-icon {
+            font-size: 1.2rem;
+        }
+        
+        .education-list {
+            margin: 0;
+            padding-left: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .education-list li {
+            font-size: 0.9rem;
+            color: #4b5563;
+            line-height: 1.5;
+        }
+        
+        .education-empty {
+            text-align: center;
+            padding: 3rem;
+            color: var(--muted, #6b7280);
+        }
+        
+        @media (max-width: 768px) {
+            .education-section {
+                padding: 3rem 1rem;
+            }
+            
+            .education-header {
+                gap: 1rem;
+            }
+            
+            .education-logo {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .education-logo-placeholder {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .education-details {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</section>
+
+<script>
+    // Theme toggle
+    const themeBtn = document.getElementById('theme-toggle');
+    const heroSection = document.getElementById('hero-section');
+    themeBtn.addEventListener('click', () => {
+        const currentTheme = heroSection.getAttribute('data-theme');
+        heroSection.setAttribute('data-theme', currentTheme === 'dark' ? 'light' : 'dark');
+    });
+
+    // Resume Modal
+    const resumeModal = document.getElementById('resume-modal');
+    const openBtn = document.getElementById('open-resume-btn');
+    const closeBtn = document.getElementById('close-resume-btn');
+
+    openBtn.addEventListener('click', () => {
+        resumeModal.classList.add('show');
+        document.body.style.overflow = 'hidden';
+    });
+
+    closeBtn.addEventListener('click', () => {
+        resumeModal.classList.remove('show');
+        document.body.style.overflow = '';
+    });
+
+    resumeModal.addEventListener('click', (e) => {
+        if (e.target === resumeModal) {
+            resumeModal.classList.remove('show');
+            document.body.style.overflow = '';
+        }
+    });
+
+    // Prevent iframe/inner clicks from closing modal
+    const viewer = document.querySelector('.resume-viewer');
+    if(viewer) {
+        viewer.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+    }
+</script>
+@endsection
