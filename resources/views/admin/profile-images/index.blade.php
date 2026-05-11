@@ -383,6 +383,8 @@
         }
 
         const formData = new FormData(form);
+        // Ensure CSRF token is included
+        formData.append('_token', '{{ csrf_token() }}');
         
         fetch('{{ route("admin.profile-images.store") }}', {
             method: 'POST',

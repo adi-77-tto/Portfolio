@@ -19,7 +19,7 @@
             margin: 0;
             font-family: Georgia, Cambria, 'Times New Roman', serif;
             color: var(--ink);
-            background: #0c0e12;
+            background: #ffffff;
         }
         a { color: #60a5fa; }
         body.home-hero-mode a { color: inherit; }
@@ -122,11 +122,11 @@
         }
         main { padding: 2rem 0 4rem; }
         .card {
-            background: rgba(30, 41, 59, 0.8);
-            border: 1px solid rgba(148, 163, 184, 0.2);
+            background: var(--surface);
+            border: 1px solid var(--line);
             border-radius: 16px;
             padding: 1.1rem;
-            color: #e5e7eb;
+            color: var(--ink);
         }
         
         body.home-hero-mode .card {
@@ -147,7 +147,7 @@
         
         h1, h2, h3 { 
             margin-top: 0;
-            color: #ffffff;
+            color: var(--ink);
         }
         
         body.home-hero-mode h1,
@@ -218,18 +218,18 @@
         }
         input, textarea, select {
             width: 100%;
-            border: 1px solid rgba(148, 163, 184, 0.3);
+            border: 1px solid var(--line);
             border-radius: 10px;
             padding: 0.65rem;
             margin-top: 0.35rem;
             margin-bottom: 0.85rem;
             font: inherit;
-            background: rgba(30, 41, 59, 0.6);
-            color: #e5e7eb;
+            background: var(--surface);
+            color: var(--ink);
         }
         
         input::placeholder, textarea::placeholder {
-            color: #9ca3af;
+            color: var(--muted);
         }
         
         body.home-hero-mode input,
